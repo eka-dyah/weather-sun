@@ -108,6 +108,7 @@ function btnHandlers() {
         if (!liff.isLoggedIn()) {
             liff.login();
         }
+        console.log("clicked");
     });
  
  
@@ -116,6 +117,7 @@ function btnHandlers() {
             liff.logout();
             window.location.reload();
         }
+        console.log("clicked also")
     });
  
     document.getElementById('sendMessageButton').addEventListener('click', function() {

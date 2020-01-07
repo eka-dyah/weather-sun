@@ -91,11 +91,13 @@ function getInfoLine() {
         document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!';
         
     } else {
-        
         console.log('else');
         document.getElementsByClassName('buttonContent').style.display = 'none';
+        console.log('else1');
         document.getElementById('clientOrExternal').textContent = "You're running in external browser, open Line App for better experience";
+        console.log('else2');
     }
+    
     console.log('done');
 }
 

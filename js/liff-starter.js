@@ -85,14 +85,12 @@ function initializeApp() {
 function getInfoLine() {
     console.log('fungsi ini bekerja');
     if (liff.isInClient()) {
-        
-    
+        document.getElementById('clientOrExternal').innerHTML = `<p>Welcome to Line in-app browser!</p>`;
     } else {
-        document.getElementsByClassName('buttonContent').style.display = 'none'
-        document.getElementById('clientOrExternal').innerHTML = `<p>You're running in external browser, open Line App for better experience</p>`
+        document.getElementsByClassName('buttonContent').style.display = 'none';
+        document.getElementById('clientOrExternal').innerHTML = `<p>You're running in external browser, open Line App for better experience</p>`;
     }
     console.log('done');
-
 }
 
 function btnHandlers() {
@@ -112,7 +110,6 @@ function btnHandlers() {
         if (!liff.isLoggedIn()) {
             liff.login();
         }
-        console.log("clicked");
     });
  
  
@@ -121,7 +118,6 @@ function btnHandlers() {
             liff.logout();
             window.location.reload();
         }
-        console.log("clicked also")
     });
  
     document.getElementById('btn-send-chat').addEventListener('click', function() {

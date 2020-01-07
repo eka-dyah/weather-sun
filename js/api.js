@@ -50,7 +50,7 @@ function getCity () {
         </tr>
       </table>
       <div class="double-btn">
-        <button id="btn-send-chat"><img class="icoimg" src="icon/paper-plane.svg"></button>
+        <button id="sendMessageButton"><img class="icoimg" src="icon/paper-plane.svg"></button>
     </div>
     `;
     document.getElementById('result-city').innerHTML = tableHtml;

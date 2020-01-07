@@ -64,6 +64,8 @@ function initializeApp() {
     btnHandlers();
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
+        
+        document.getElementById('liffLoginButton').disable = true;
 
         liff.getProfile()
             .then(user => {
@@ -73,37 +75,40 @@ function initializeApp() {
                 console.log('error', err);
             });
 
-        document.getElementById('btn-login').style.display = 'none';
-
     } else {
 
-        document.getElementById('btn-logout').style.display = 'none';
+        document.getElementById('liffLogoutButton').disabled = true;
 
     }
 }
 
 function getInfoLine() {
+    console.log('fungsi ini bekerja');
     if (liff.isInClient()) {
-        document.getElementById('openWindowButton').addEventListener('click', function() {
-            liff.openWindow({
-                url: 'https://wheatersun.herokuapp.com/', 
-                external: true
-            });
-        });
-        document.getElementById('closeWindowButton').addEventListener('click', function() {
-            liff.closeWindow();
-        });
+        
     
     } else {
         document.getElementsByClassName('buttonContent').style.display = 'none'
         document.getElementById('clientOrExternal').innerHTML = `<p>You're running in external browser, open Line App for better experience</p>`
     }
+    console.log('done');
 
 }
 
 function btnHandlers() {
 
-    document.getElementById('btn-login').addEventListener('click', function() {
+    document.getElementById('openWindowButton').addEventListener('click', function() {
+        liff.openWindow({
+            url: 'https://weathersun.herokuapp.com/', 
+            external: true
+        });
+    });
+
+    document.getElementById('closeWindowButton').addEventListener('click', function() {
+        liff.closeWindow();
+    });
+
+    document.getElementById('liffLoginButton').addEventListener('click', function() {
         if (!liff.isLoggedIn()) {
             liff.login();
         }
@@ -111,7 +116,7 @@ function btnHandlers() {
     });
  
  
-    document.getElementById('btn-logout').addEventListener('click', function() {
+    document.getElementById('liffLogoutButton').addEventListener('click', function() {
         if (liff.isLoggedIn()) {
             liff.logout();
             window.location.reload();
@@ -119,7 +124,7 @@ function btnHandlers() {
         console.log("clicked also")
     });
  
-    document.getElementById('sendMessageButton').addEventListener('click', function() {
+    document.getElementById('btn-send-chat').addEventListener('click', function() {
 
         cityName = document.getElementById('cityName').value;
         temp = document.getElementById('temp').value;

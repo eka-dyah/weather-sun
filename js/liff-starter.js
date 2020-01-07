@@ -60,12 +60,8 @@ function initializeLiff(myLiffId) {
 
 
 function initializeApp() {
-
+    getInfoLine();
     btnHandlers();
-    
-    if(!liff.isInClient()) {
-        document.getElementById('clientOrExternal').innerHTML = `<p>You're running in external browser, open Line App for better experience</p>`
-    }
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
 
@@ -81,7 +77,7 @@ function initializeApp() {
 
     } else {
 
-        document.getElementById('btn-login').style.display = 'none';
+        document.getElementById('btn-logout').style.display = 'none';
 
     }
 }
@@ -129,7 +125,9 @@ function btnHandlers() {
             });
         }
     }); 
+}
 
+function getInfoLine() {
     if (liff.isInClient()) {
         document.getElementById('openWindowButton').addEventListener('click', function() {
             liff.openWindow({
@@ -142,6 +140,8 @@ function btnHandlers() {
         });
         document.getElementById('btn-login').classList.toggle('hidden');
         document.getElementById('btn-logout').classList.toggle('hidden');
+        document.getElementById('clientOrExternal').innerHTML = `<p>You're running in external browser, open Line App for better experience</p>`
+    
     } else {
         document.getElementsByClassName('buttonContent').style.display = 'none'
     }

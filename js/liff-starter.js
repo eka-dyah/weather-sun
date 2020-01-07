@@ -60,11 +60,12 @@ function initializeLiff(myLiffId) {
 
 
 function initializeApp() {
+    getInfoLine();
     btnHandlers();
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
         
-        document.getElementById('liffLoginButton').disable = true;
+        document.getElementById('liffLoginButton').style.display = 'none';
 
         liff.getProfile()
             .then(user => {
@@ -76,7 +77,7 @@ function initializeApp() {
 
     } else {
 
-        document.getElementById('liffLogoutButton').disabled = true;
+        document.getElementById('liffLogoutButton').style.display = 'none';
 
     }
 }
@@ -127,7 +128,7 @@ function btnHandlers() {
         }
     });
  
-    document.getElementById('btn-send-chat').addEventListener('click', function() {
+    document.getElementById('sendMessageButton').addEventListener('click', function() {
 
         cityName = document.getElementById('cityName').value;
         temp = document.getElementById('temp').value;

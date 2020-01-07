@@ -60,7 +60,6 @@ function initializeLiff(myLiffId) {
 
 
 function initializeApp() {
-    getInfoLine();
     btnHandlers();
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
@@ -88,13 +87,13 @@ function getInfoLine() {
     if (liff.isInClient()) {
 
         console.log('if');
-        document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!';
-        
+        document.getElementById('clientOrExternal').innerHTML = 'Welcome to Line in-app browser!';
+
     } else {
         console.log('else');
         document.getElementsByClassName('buttonContent').style.display = 'none';
         console.log('else1');
-        document.getElementById('clientOrExternal').textContent = "You're running in external browser, open Line App for better experience";
+        document.getElementById('clientOrExternal').innerHTML = "You're running in external browser, open Line App for better experience";
         console.log('else2');
     }
     

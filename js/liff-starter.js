@@ -88,22 +88,6 @@ function initializeApp() {
 
 function btnHandlers() {
 
-    if (liff.isInClient()) {
-        document.getElementById('openWindowButton').addEventListener('click', function() {
-            liff.openWindow({
-                url: 'https://wheatersun.herokuapp.com/', // Isi dengan Endpoint URL aplikasi web Anda
-                external: true
-            });
-        });
-        document.getElementById('closeWindowButton').addEventListener('click', function() {
-            liff.closeWindow();
-        });
-        document.getElementById('btn-login').classList.toggle('hidden');
-        document.getElementById('btn-logout').classList.toggle('hidden');
-    } else {
-        document.getElementsByClassName('buttonContent').style.display = 'none'
-    }
-
     document.getElementById('btn-login').addEventListener('click', function() {
         if (!liff.isLoggedIn()) {
             liff.login();
@@ -145,4 +129,20 @@ function btnHandlers() {
             });
         }
     });   
+    if (liff.isInClient()) {
+        document.getElementById('openWindowButton').addEventListener('click', function() {
+            liff.openWindow({
+                url: 'https://wheatersun.herokuapp.com/', // Isi dengan Endpoint URL aplikasi web Anda
+                external: true
+            });
+        });
+        document.getElementById('closeWindowButton').addEventListener('click', function() {
+            liff.closeWindow();
+        });
+        document.getElementById('btn-login').classList.toggle('hidden');
+        document.getElementById('btn-logout').classList.toggle('hidden');
+    } else {
+        document.getElementsByClassName('buttonContent').style.display = 'none'
+    }
+
 }

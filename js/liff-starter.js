@@ -82,6 +82,25 @@ function initializeApp() {
     }
 }
 
+function getInfoLine() {
+    if (liff.isInClient()) {
+        document.getElementById('openWindowButton').addEventListener('click', function() {
+            liff.openWindow({
+                url: 'https://wheatersun.herokuapp.com/', 
+                external: true
+            });
+        });
+        document.getElementById('closeWindowButton').addEventListener('click', function() {
+            liff.closeWindow();
+        });
+    
+    } else {
+        document.getElementsByClassName('buttonContent').style.display = 'none'
+        document.getElementById('clientOrExternal').innerHTML = `<p>You're running in external browser, open Line App for better experience</p>`
+    }
+
+}
+
 function btnHandlers() {
 
     document.getElementById('btn-login').addEventListener('click', function() {
@@ -127,23 +146,3 @@ function btnHandlers() {
     }); 
 }
 
-function getInfoLine() {
-    if (liff.isInClient()) {
-        document.getElementById('openWindowButton').addEventListener('click', function() {
-            liff.openWindow({
-                url: 'https://wheatersun.herokuapp.com/', 
-                external: true
-            });
-        });
-        document.getElementById('closeWindowButton').addEventListener('click', function() {
-            liff.closeWindow();
-        });
-        document.getElementById('btn-login').classList.toggle('hidden');
-        document.getElementById('btn-logout').classList.toggle('hidden');
-        document.getElementById('clientOrExternal').innerHTML = `<p>You're running in external browser, open Line App for better experience</p>`
-    
-    } else {
-        document.getElementsByClassName('buttonContent').style.display = 'none'
-    }
-
-}

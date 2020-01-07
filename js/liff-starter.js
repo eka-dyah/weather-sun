@@ -89,34 +89,36 @@ function initializeApp() {
 function btnHandlers() {
 
     if (liff.isInClient()) {
-        document.getElementById('openWindowButton').addEventListener('click', () => {
+        document.getElementById('openWindowButton').addEventListener('click', function() {
             liff.openWindow({
                 url: 'https://wheatersun.herokuapp.com/', // Isi dengan Endpoint URL aplikasi web Anda
                 external: true
             });
         });
-        document.getElementById('closeWindowButton').addEventListener('click', () => {
+        document.getElementById('closeWindowButton').addEventListener('click', function() {
             liff.closeWindow();
         });
+        document.getElementById('btn-login').classList.toggle('hidden');
+        document.getElementById('btn-logout').classList.toggle('hidden');
     } else {
         document.getElementsByClassName('buttonContent').style.display = 'none'
     }
 
-    document.getElementById('btn-login').addEventListener('click', () => {
+    document.getElementById('btn-login').addEventListener('click', function() {
         if (!liff.isLoggedIn()) {
             liff.login();
         }
     });
  
  
-    document.getElementById('btn-logout').addEventListener('click', () => {
+    document.getElementById('btn-logout').addEventListener('click', function() {
         if (liff.isLoggedIn()) {
             liff.logout();
             window.location.reload();
         }
     });
  
-    document.getElementById('sendMessageButton').addEventListener('click', () => {
+    document.getElementById('sendMessageButton').addEventListener('click', function() {
 
         cityName = document.getElementById('cityName').value;
         temp = document.getElementById('temp').value;
@@ -140,8 +142,5 @@ function btnHandlers() {
                 window.alert('Error sending message: ' + error);
             });
         }
-    });
-
-    
+    });   
 }
-

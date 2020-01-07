@@ -69,7 +69,7 @@ function initializeApp() {
 
         liff.getProfile()
             .then(user => {
-                document.getElementById('message').innerHTML = `Hai, ${user.displayName}!`
+                document.getElementById('message').innerHTML = `Hai, ${user.displayName}!`;
             })
             .catch((err) => {
                 console.log('error', err);
@@ -83,21 +83,18 @@ function initializeApp() {
 }
 
 function getInfoLine() {
-    console.log('fungsi ini bekerja');
 
     if (liff.isInClient()) {
-
         console.log('if');
-        document.getElementById('clientOrExternal').innerHTML = 'Welcome to Line in-app browser!';
+        document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!';
+        document.getElementsByClassName('buttonContent').style.display = 'block';
 
     } else {
-        console.log('else');
-        document.getElementsByClassName('buttonContent').style.display = 'none';
         console.log('else1');
-        document.getElementById('clientOrExternal').innerHTML = "You're running in external browser, open Line App for better experience";
+        document.getElementById('clientOrExternal').textContent = "You're running in external browser, open Line App for better experience";
+        document.getElementsByClassName('buttonContent').style.display = 'none';
         console.log('else2');
     }
-    
     console.log('done');
 }
 

@@ -77,11 +77,11 @@ function initializeApp() {
                 console.log('error', err);
             });
 
-        document.getElementById('btn-login').disabled = true;
+        document.getElementById('btn-login').style.display = 'none';
 
     } else {
 
-        document.getElementById('btn-logout').disabled = true;
+        document.getElementById('btn-login').style.display = 'none';
 
     }
 }
@@ -128,11 +128,12 @@ function btnHandlers() {
                 window.alert('Error sending message: ' + error);
             });
         }
-    });   
+    }); 
+
     if (liff.isInClient()) {
         document.getElementById('openWindowButton').addEventListener('click', function() {
             liff.openWindow({
-                url: 'https://wheatersun.herokuapp.com/', // Isi dengan Endpoint URL aplikasi web Anda
+                url: 'https://wheatersun.herokuapp.com/', 
                 external: true
             });
         });

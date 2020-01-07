@@ -86,12 +86,15 @@ function getInfoLine() {
     console.log('fungsi ini bekerja');
 
     if (liff.isInClient()) {
-        document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!';
+
         console.log('if');
+        document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!';
+        
     } else {
+        
+        console.log('else');
         document.getElementsByClassName('buttonContent').style.display = 'none';
         document.getElementById('clientOrExternal').textContent = "You're running in external browser, open Line App for better experience";
-        console.log('else');
     }
     console.log('done');
 }

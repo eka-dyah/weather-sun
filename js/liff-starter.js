@@ -134,26 +134,20 @@ function btnHandlers() {
         }
     });
     
-    cityName = document.getElementById('cityName').innerHTML;
-        temp = document.getElementById('temp').innerHTML;
-        tempFeel = document.getElementById('tempFeel').innerHTML;
-        humid = document.getElementById('humid').innerHTML;
-        cloudiness = document.getElementById('cloudiness').innerHTML;
-        text = cityName + "\n" + "Temp: " + temp + " Celcius\n" + "Temp Feel: " + tempFeel + " Celcius\n" + "Humid: " + humid + "\n" + "Cloudiness: " + cloudiness + "\n";
-    document.getElementById('sendMessageButton').addEventListener('click', function() {        
-        if (!liff.isInClient()) {
-            console.log(text);
-            alert("Fitur ini hanya tersedia jika membuka aplikasi di Line in-app browser");
-        } else {
-            liff.sendMessages([{
-                'type': 'text',
-                'text': 'text'
-            }]).then(function() {
-                window.alert('Ini adalah pesan dari fitur Send Message');
-            }).catch(function(error) {
-                window.alert('Error sending message: ' + error);
-            });
-        }
-    }); 
+    
+        document.getElementById('sendMessageButton').addEventListener('click', function() {
+            if (!liff.isInClient()) {
+                sendAlertIfNotInClient();
+            } else {
+                liff.sendMessages([{
+                    'type': 'text',
+                    'text': "You've successfully sent a message! Hooray!"
+                }]).then(function() {
+                    window.alert('Message sent');
+                }).catch(function(error) {
+                    window.alert('Error sending message: ' + error);
+                });
+            }
+        });
 }
 

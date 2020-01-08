@@ -60,12 +60,12 @@ function initializeLiff(myLiffId) {
 
 
 function initializeApp() {
-    getInfoLine();
-    btnHandlers();
+    displayIsInClientInfo();
+    registerButtonHandlers();
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
         
-        document.getElementById('liffLoginButton').style.display = 'none';
+        document.getElementById('liffLoginButton').classList.toggle('hidden');
 
         liff.getProfile()
             .then(user => {
@@ -76,27 +76,24 @@ function initializeApp() {
             });
 
     } else {
-        document.getElementById('liffLogoutButton').style.display = 'none';
-        document.getElementById('sendMessageButton').style.display = 'none';
+        document.getElementById('liffLogoutButton').classList.toggle('hidden');
+        document.getElementById('sendMessageButton').classList.toggle('hidden');
     }
 }
 
-function getInfoLine() {
-
+function displayIsInClientInfo() {
     if (liff.isInClient()) {
-        console.log('if');
         document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!: ' + liff.isLoggedIn();
-        document.getElementById('buttonContent').style.display = 'inline';
-        document.getElementById('loginButton').style.display = 'none';
+        document.getElementById('loginButton').classList.toggle('hidden');
 
     } else {
         document.getElementById('clientOrExternal').textContent = "You're running in external browser, open Line App for better experience";
-        document.getElementById('buttonContent').style.display = 'none';
-        document.getElementById('sendMessageButton').style.display = 'none';
+        document.getElementById('buttonContent').classList.toggle('hidden');
+        document.getElementById('sendMessageButton').classList.toggle('hidden');
     }
 }
 
-function btnHandlers() {
+function registerButtonHandlers() {
 
     document.getElementById('openWindowButton').addEventListener('click', function() {
         liff.openWindow({

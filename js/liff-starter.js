@@ -66,6 +66,7 @@ function initializeApp() {
     if (liff.isLoggedIn()) {
         
         document.getElementById('liffLoginButton').style.display = 'none';
+        document.getElementById('sendMessageButton').style.display = 'inline';
 
         liff.getProfile()
             .then(user => {
@@ -77,19 +78,16 @@ function initializeApp() {
 
     } else {
         document.getElementById('liffLogoutButton').style.display = 'none';
-        document.getElementById('sendMessageButton').style.display = 'none';
     }
 }
 
 function getInfoLiff() {
     if (liff.isInClient()) {
         document.getElementById('loginButton').style.display = 'none';
-        document.getElementById('buttonContent').style.display = 'inline-block';
         document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!: ' + liff.isLoggedIn();
+        document.getElementById('sendMessageButton').style.display = 'inline';
         
     } else {
-        
-        document.getElementById('sendMessageButton').style.display = 'none';
         document.getElementById('buttonContent').style.display = 'none';
         document.getElementById('clientOrExternal').textContent = "You're running in external browser, open Line App for better experience";
     }

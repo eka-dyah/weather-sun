@@ -135,7 +135,7 @@ function btnHandlers() {
     });
     
     document.getElementById('sendMessageButton').addEventListener('click', function() {
-        if (liff.isInClient()) {
+        if (liff.isLoggedIn()) {
             liff.sendMessages([
                 {
                   type:'text',

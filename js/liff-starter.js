@@ -145,14 +145,16 @@ function btnHandlers() {
         if (liff.isInClient()) {
             liff.sendMessages([
                 {
-                    'type': 'text',
-                    'text': text
+                  type:'text',
+                  text: text
                 }
-            ]).then(() => {
+              ])
+              .then(() => {
                 window.alert('Message sent');
-            }).catch((error) => {
+              })
+              .catch((err) => {
                 window.alert('Error sending message: ' + error);
-            });
+              });
         } else {
             alert("Fitur ini hanya tersedia jika membuka aplikasi di Line in-app browser");
         }

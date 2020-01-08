@@ -133,10 +133,16 @@ function btnHandlers() {
             window.location.reload();
         }
     });
-    
-    
 
     document.getElementById('sendMessageButton').addEventListener('click', function() {
+        
+        cityName = document.getElementById('cityName').innerHTML;
+        temp = document.getElementById('temp').innerHTML;
+        tempFeel = document.getElementById('tempFeel').innerHTML;
+        humid = document.getElementById('humid').innerHTML;
+        cloudiness = document.getElementById('cloudiness').innerHTML;
+        msg = cityName + "\n" + "Temp: " + temp + " Celcius\n" + "Temp Feel: " + tempFeel + " Celcius\n" + "Humid: " + humid + "\n" + "Cloudiness: " + cloudiness + "\n";
+
         if (liff.isInClient()) {
             liff.sendMessages([
                 {

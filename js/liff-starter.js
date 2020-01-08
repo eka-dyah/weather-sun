@@ -133,16 +133,14 @@ function btnHandlers() {
             window.location.reload();
         }
     });
- 
-    document.getElementById('sendMessageButton').addEventListener('click', function() {
-
-        cityName = document.getElementById('cityName').innerHTML;
+    
+    cityName = document.getElementById('cityName').innerHTML;
         temp = document.getElementById('temp').innerHTML;
         tempFeel = document.getElementById('tempFeel').innerHTML;
         humid = document.getElementById('humid').innerHTML;
         cloudiness = document.getElementById('cloudiness').innerHTML;
         text = cityName + "\n" + "Temp: " + temp + " Celcius\n" + "Temp Feel: " + tempFeel + " Celcius\n" + "Humid: " + humid + "\n" + "Cloudiness: " + cloudiness + "\n";
-        
+    document.getElementById('sendMessageButton').addEventListener('click', function() {        
         if (!liff.isInClient()) {
             console.log(text);
             alert("Fitur ini hanya tersedia jika membuka aplikasi di Line in-app browser");

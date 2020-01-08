@@ -89,10 +89,12 @@ function getInfoLiff() {
             .catch((err) => {
                 console.log('error', err);
             });
+        document.getElementById('buttonContent').style.display = 'inline';
         document.getElementById('loginButton').style.display = 'none';
         document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!';
         
     } else {
+        document.getElementById('buttonContent').style.display = 'none';
         document.getElementById('clientOrExternal').textContent = "You're running in external browser, open Line App for better experience";
     }
 }
@@ -123,7 +125,6 @@ function btnHandlers() {
             liff.login();
         }
     });
- 
  
     document.getElementById('liffLogoutButton').addEventListener('click', function() {
         if (liff.isLoggedIn()) {

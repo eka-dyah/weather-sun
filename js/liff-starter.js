@@ -139,9 +139,10 @@ function btnHandlers() {
         cityName = document.getElementById('cityName').innerHTML;
         temp = document.getElementById('temp').innerHTML;
         tempFeel = document.getElementById('tempFeel').innerHTML;
+        windSpeed = document.getElementById('windSpeed').innerHTML;
         humid = document.getElementById('humid').innerHTML;
         cloudiness = document.getElementById('cloudiness').innerHTML;
-        msg = cityName + "\n" + "Temp: " + temp + " Celcius\n" + "Temp Feel: " + tempFeel + " Celcius\n" + "Humid: " + humid + "\n" + "Cloudiness: " + cloudiness;
+        msg = cityName + "\n" + "Temp: " + temp + " Celcius\n" + "Temp Feel: " + tempFeel + " Celcius\n" + "Humid: " + humid + "\n" + "Wind Speed: " + windSpeed + "\n" + "Cloudiness: " + cloudiness;
 
         if (liff.isInClient()) {
             liff.sendMessages([

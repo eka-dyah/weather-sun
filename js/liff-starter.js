@@ -136,12 +136,12 @@ function btnHandlers() {
  
     document.getElementById('sendMessageButton').addEventListener('click', function() {
 
-        cityName = document.getElementById('cityName').value;
-        temp = document.getElementById('temp').value;
-        tempFeel = document.getElementById('tempFeel').value;
-        humid = document.getElementById('humid').value;
-        cloudiness = document.getElementById('cloudiness').value;
-        text = cityName + "\n" + "Temp: " + temp + "\n" + "Temp Feel: " + tempFeel + "\n" + "Humid: " + humid + "\n" + "Cloudiness: " + cloudiness + "\n";
+        cityName = document.getElementById('cityName').innerHTML;
+        temp = document.getElementById('temp').innerHTML;
+        tempFeel = document.getElementById('tempFeel').innerHTML;
+        humid = document.getElementById('humid').innerHTML;
+        cloudiness = document.getElementById('cloudiness').innerHTML;
+        text = cityName + "\n" + "Temp: " + temp + " Celcius\n" + "Temp Feel: " + tempFeel + " Celcius\n" + "Humid: " + humid + "\n" + "Cloudiness: " + cloudiness + "\n";
         
         if (!liff.isInClient()) {
             console.log(text);

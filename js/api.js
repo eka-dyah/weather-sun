@@ -30,11 +30,11 @@ function getCity () {
         </tr>
         <tr>
           <th>Temperature</th>
-          <td id="temp">${Math.round(temp/data.count)} <sup>o</sup>C</td>
+          <td><span id="temp">${Math.round(temp/data.count)}</span><sup>o</sup>C</td>
         </tr>
         <tr>
           <th>Temperature Feel</th>
-          <td id="tempFeel">${Math.round(tempFeel/data.count)} <sup>o</sup>C</td>
+          <td><span id="tempFeel">${Math.round(tempFeel/data.count)}</span><sup>o</sup>C</td>
         </tr>
         <tr>
           <th>Humidity</th>

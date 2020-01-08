@@ -76,6 +76,7 @@ function initializeApp() {
             });
 
     } else {
+        document.getElementById('sendMessageButton').style.display = 'none';
         document.getElementById('liffLogoutButton').style.display = 'none';
     }
 }
@@ -140,17 +141,15 @@ function btnHandlers() {
         tempFeel = document.getElementById('tempFeel').value;
         humid = document.getElementById('humid').value;
         cloudiness = document.getElementById('cloudiness').value;
-
+        text = cityName + "\n" + "Temp: " + temp + "\n" + "Temp Feel: " + tempFeel + "\n" + "Humid: " + humid + "\n" + "Cloudiness: " + cloudiness + "\n";
+        
         if (!liff.isInClient()) {
+            console.log(text);
             alert("Fitur ini hanya tersedia jika membuka aplikasi di Line in-app browser");
         } else {
             liff.sendMessages([{
                 'type': 'text',
-                'text': `${cityName}\n
-                        Temp: ${temp}\n
-                        Temp Feel: ${tempFeel}\n
-                        Humid: ${humid}\n
-                        Clodiness: ${cloudiness}`
+                'text': text
             }]).then(function() {
                 window.alert('Ini adalah pesan dari fitur Send Message');
             }).catch(function(error) {

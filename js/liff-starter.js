@@ -141,7 +141,7 @@ function btnHandlers() {
         tempFeel = document.getElementById('tempFeel').innerHTML;
         humid = document.getElementById('humid').innerHTML;
         cloudiness = document.getElementById('cloudiness').innerHTML;
-        msg = cityName + "\n" + "Temp: " + temp + " Celcius\n" + "Temp Feel: " + tempFeel + " Celcius\n" + "Humid: " + humid + "\n" + "Cloudiness: " + cloudiness + "\n";
+        msg = cityName + "\n" + "Temp: " + temp + " Celcius\n" + "Temp Feel: " + tempFeel + " Celcius\n" + "Humid: " + humid + "\n" + "Cloudiness: " + cloudiness;
 
         if (liff.isInClient()) {
             liff.sendMessages([
@@ -151,10 +151,10 @@ function btnHandlers() {
                 }
               ])
               .then(() => {
-                console.log('message sent');
+                alert('Message sent');
               })
               .catch((err) => {
-                console.log('error', err);
+                alert('Error', err);
               });
         } else {
             alert("Fitur ini hanya tersedia jika membuka aplikasi di Line in-app browser");

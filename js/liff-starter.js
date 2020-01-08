@@ -78,13 +78,18 @@ function initializeApp() {
 
     } else {
         document.getElementById('liffLogoutButton').style.display = 'none';
-        console.log('berjalan');
     }
 }
 
 function getInfoLiff() {
     if (liff.isInClient()) {
-        document.getElementById('sendMessageButton').style.display = 'block';
+        liff.getProfile()
+            .then(user => {
+                document.getElementById('message').innerHTML = `Hai, ${user.displayName}!`;
+            })
+            .catch((err) => {
+                console.log('error', err);
+            });
         document.getElementById('loginButton').style.display = 'none';
         document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!: ' + liff.isLoggedIn();
         

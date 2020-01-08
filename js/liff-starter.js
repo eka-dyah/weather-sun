@@ -76,8 +76,8 @@ function initializeApp() {
             });
 
     } else {
-        console.log(liff.isLoggedIn());
         document.getElementById('liffLogoutButton').style.display = 'none';
+        document.getElementById('sendMessageButton').style.display = 'none';
     }
 }
 

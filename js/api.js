@@ -1,4 +1,5 @@
 let city = "";
+document.getElementById('sendMessageButton').style.display = 'none';
 getCity();
 function getCity () {
   
@@ -49,10 +50,8 @@ function getCity () {
           <td id="cloudiness">${Math.round(cloudiness/data.count)} %</td>
         </tr>
       </table>
-      <div class="double-btn">
-        <button id="sendMessageButton"><img class="icoimg" src="icon/paper-plane.svg"></button>
-    </div>
     `;
+    document.getElementById('sendMessageButton').style.display = 'block';
     document.getElementById('result-city').innerHTML = tableHtml;
     document.getElementById('loader').style.display = 'none';
   }

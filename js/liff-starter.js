@@ -135,25 +135,25 @@ function btnHandlers() {
     });
     
     cityName = document.getElementById('cityName').innerHTML;
-        temp = document.getElementById('temp').innerHTML;
-        tempFeel = document.getElementById('tempFeel').innerHTML;
-        humid = document.getElementById('humid').innerHTML;
-        cloudiness = document.getElementById('cloudiness').innerHTML;
-        text = cityName + "\n" + "Temp: " + temp + " Celcius\n" + "Temp Feel: " + tempFeel + " Celcius\n" + "Humid: " + humid + "\n" + "Cloudiness: " + cloudiness + "\n";
+    temp = document.getElementById('temp').innerHTML;
+    tempFeel = document.getElementById('tempFeel').innerHTML;
+    humid = document.getElementById('humid').innerHTML;
+    cloudiness = document.getElementById('cloudiness').innerHTML;
+    msg = cityName + "\n" + "Temp: " + temp + " Celcius\n" + "Temp Feel: " + tempFeel + " Celcius\n" + "Humid: " + humid + "\n" + "Cloudiness: " + cloudiness + "\n";
 
     document.getElementById('sendMessageButton').addEventListener('click', function() {
         if (liff.isInClient()) {
             liff.sendMessages([
                 {
                   type:'text',
-                  text: text
+                  text: 'helo'
                 }
               ])
               .then(() => {
-                window.alert('Message sent');
+                alert('Message sent');
               })
               .catch((err) => {
-                window.alert('Error sending message: ' + error);
+                alert('Error sending message: ' + error);
               });
         } else {
             alert("Fitur ini hanya tersedia jika membuka aplikasi di Line in-app browser");

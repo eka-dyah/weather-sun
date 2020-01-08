@@ -87,13 +87,6 @@ function getInfoLiff() {
         document.getElementById('sendMessageButton').style.display = 'block';
         document.getElementById('loginButton').style.display = 'none';
         document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!: ' + liff.isLoggedIn();
-        liff.getProfile()
-            .then(user => {
-                document.getElementById('message').innerHTML = `Hai, ${user.displayName}!`;
-            })
-            .catch((err) => {
-                console.log('error', err);
-            });
         
     } else {
         document.getElementById('buttonContent').style.display = 'none';

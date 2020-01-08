@@ -66,7 +66,6 @@ function initializeApp() {
     if (liff.isLoggedIn()) {
         
         document.getElementById('liffLoginButton').style.display = 'none';
-        document.getElementById('sendMessageButton').style.display = 'inline';
 
         liff.getProfile()
             .then(user => {
@@ -86,13 +85,12 @@ function getInfoLiff() {
         liff.getProfile()
             .then(user => {
                 document.getElementById('message').innerHTML = `Hai, ${user.displayName}!`;
-                document.getElementById('sendMessageButton').style.display = 'inline';
             })
             .catch((err) => {
                 console.log('error', err);
             });
         document.getElementById('loginButton').style.display = 'none';
-        document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!: ' + liff.isLoggedIn();
+        document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!';
         
     } else {
         document.getElementById('buttonContent').style.display = 'none';

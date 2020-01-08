@@ -86,6 +86,7 @@ function getInfoLiff() {
         liff.getProfile()
             .then(user => {
                 document.getElementById('message').innerHTML = `Hai, ${user.displayName}!`;
+                document.getElementById('sendMessageButton').style.display = 'inline';
             })
             .catch((err) => {
                 console.log('error', err);

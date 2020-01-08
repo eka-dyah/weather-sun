@@ -76,9 +76,8 @@ function initializeApp() {
             });
 
     } else {
-
+        console.log(liff.isLoggedIn());
         document.getElementById('liffLogoutButton').style.display = 'none';
-
     }
 }
 
@@ -87,7 +86,7 @@ function getInfoLine() {
     if (liff.isInClient()) {
         console.log('if');
         document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!: ' + liff.isLoggedIn();
-        document.getElementById('buttonContent').style.display = 'block';
+        document.getElementById('buttonContent').style.display = 'inline';
         document.getElementById('loginButton').style.display = 'none';
 
     } else {
@@ -132,7 +131,7 @@ function btnHandlers() {
         cloudiness = document.getElementById('cloudiness').value;
 
         if (!liff.isInClient()) {
-            sendAlertIfNotInClient();
+            alert("Fitur ini hanya tersedia jika membuka aplikasi di Line in-app browser");
         } else {
             liff.sendMessages([{
                 'type': 'text',

@@ -60,12 +60,12 @@ function initializeLiff(myLiffId) {
 
 
 function initializeApp() {
-    displayIsInClientInfo();
-    registerButtonHandlers();
+    getInfoLiff();
+    btnHandlers();
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
         
-        document.getElementById('liffLoginButton').disabled = true;
+        document.getElementById('liffLoginButton').style.display = 'none';
 
         liff.getProfile()
             .then(user => {
@@ -76,24 +76,26 @@ function initializeApp() {
             });
 
     } else {
-        document.getElementById('liffLogoutButton').disabled = true;
+        document.getElementById('liffLogoutButton').style.display = 'none';
+        document.getElementById('sendMessageButton').style.display = 'none';
     }
 }
 
-function displayIsInClientInfo() {
+function getInfoLiff() {
     if (liff.isInClient()) {
+        document.getElementById('loginButton').style.display = 'none';
+        document.getElementById('buttonContent').style.display = 'inline-block';
         document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!: ' + liff.isLoggedIn();
-        document.getElementById('liffLoginButton').classList.toggle('hidden');
-        document.getElementById('liffLogoutButton').classList.toggle('hidden');
-
+        
     } else {
+        document.getElementById('buttonContent').style.display = 'none';
+        document.getElementById('sendMessageButton').style.display = 'none';
         document.getElementById('clientOrExternal').textContent = "You're running in external browser, open Line App for better experience";
-        document.getElementById('buttonContent').classList.toggle('hidden');
-        document.getElementById('sendMessageButton').classList.toggle('hidden');
+        
     }
 }
 
-function registerButtonHandlers() {
+function btnHandlers() {
 
     document.getElementById('openWindowButton').addEventListener('click', function() {
         liff.openWindow({

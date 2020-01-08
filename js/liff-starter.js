@@ -92,6 +92,7 @@ function getInfoLine() {
     } else {
         document.getElementById('clientOrExternal').textContent = "You're running in external browser, open Line App for better experience";
         document.getElementById('buttonContent').style.display = 'none';
+        document.getElementById('sendMessageButton').style.display = 'none';
     }
 }
 

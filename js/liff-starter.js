@@ -77,7 +77,7 @@ function initializeApp() {
             });
 
     } else {
-        document.getElementById('liffLogoutButton').style.backgroundColor = 'grey';
+        document.getElementById('liffLogoutButton').style.display = 'none';
         console.log('berjalan');
     }
 }

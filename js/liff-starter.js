@@ -86,16 +86,14 @@ function getInfoLine() {
 
     if (liff.isInClient()) {
         console.log('if');
-        document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!';
+        document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!: ' + liff.isLoggedIn();
         document.getElementById('buttonContent').style.display = 'block';
+        document.getElementById('loginButton').style.display = 'none';
 
     } else {
-        console.log('else1');
         document.getElementById('clientOrExternal').textContent = "You're running in external browser, open Line App for better experience";
         document.getElementById('buttonContent').style.display = 'none';
-        console.log('else2');
     }
-    console.log('done');
 }
 
 function btnHandlers() {

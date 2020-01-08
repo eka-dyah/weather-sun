@@ -38,7 +38,7 @@ function getCity () {
         </tr>
         <tr>
           <th>Humidity</th>
-          <td id="humid>${Math.round(humid/data.count)} %</td>
+          <td id="humid">${Math.round(humid/data.count)} %</td>
         </tr>
         <tr>
           <th>Wind Speed</th>

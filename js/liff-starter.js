@@ -134,23 +134,26 @@ function btnHandlers() {
         }
     });
     
+    cityName = document.getElementById('cityName').innerHTML;
+        temp = document.getElementById('temp').innerHTML;
+        tempFeel = document.getElementById('tempFeel').innerHTML;
+        humid = document.getElementById('humid').innerHTML;
+        cloudiness = document.getElementById('cloudiness').innerHTML;
+        text = cityName + "\n" + "Temp: " + temp + " Celcius\n" + "Temp Feel: " + tempFeel + " Celcius\n" + "Humid: " + humid + "\n" + "Cloudiness: " + cloudiness + "\n";
+
     document.getElementById('sendMessageButton').addEventListener('click', function() {
-        if (liff.isLoggedIn()) {
-            liff.sendMessages([
-                {
-                  type:'text',
-                  text:'Hello, World!'
-                }
-              ])
-              .then(() => {
-                console.log('message sent');
-              })
-              .catch((err) => {
-                console.log('error', err);
-              });
+        if (!liff.isInClient()) {
+            sendAlertIfNotInClient();
         } else {
-            alert('ha');
+            liff.sendMessages([{
+                'type': 'text',
+                'text': text
+            }]).then(function() {
+                window.alert('Message sent');
+            }).catch(function(error) {
+                window.alert('Error sending message: ' + error);
+            });
         }
-    });
+        });
 }
 

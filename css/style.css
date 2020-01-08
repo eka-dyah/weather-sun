@@ -104,3 +104,6 @@ td {
     padding: 5%;
 
   }
+  #sendMessageButton {
+      display: none;
+  }

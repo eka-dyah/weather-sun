@@ -149,7 +149,7 @@ function btnHandlers() {
         } else {
             liff.sendMessages([{
                 'type': 'text',
-                'text': text
+                'text': 'text'
             }]).then(function() {
                 window.alert('Ini adalah pesan dari fitur Send Message');
             }).catch(function(error) {

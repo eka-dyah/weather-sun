@@ -65,7 +65,7 @@ function initializeApp() {
     // check if the user is logged in/out, and disable inappropriate button
     if (liff.isLoggedIn()) {
         
-        document.getElementById('liffLoginButton').classList.toggle('hidden');
+        document.getElementById('liffLoginButton').disabled = true;
 
         liff.getProfile()
             .then(user => {
@@ -76,15 +76,15 @@ function initializeApp() {
             });
 
     } else {
-        document.getElementById('liffLogoutButton').classList.toggle('hidden');
-        document.getElementById('sendMessageButton').classList.toggle('hidden');
+        document.getElementById('liffLogoutButton').disabled = true;
     }
 }
 
 function displayIsInClientInfo() {
     if (liff.isInClient()) {
         document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!: ' + liff.isLoggedIn();
-        document.getElementById('loginButton').classList.toggle('hidden');
+        document.getElementById('liffLoginButton').classList.toggle('hidden');
+        document.getElementById('liffLogoutButton').classList.toggle('hidden');
 
     } else {
         document.getElementById('clientOrExternal').textContent = "You're running in external browser, open Line App for better experience";

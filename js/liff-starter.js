@@ -137,7 +137,6 @@ function btnHandlers() {
     
         document.getElementById('sendMessageButton').addEventListener('click', function() {
             if (!liff.isInClient()) {
-                sendAlertIfNotInClient();
             } else {
                 liff.sendMessages([{
                     'type': 'text',

@@ -135,7 +135,7 @@ function btnHandlers() {
     });
 
     document.getElementById('sendMessageButton').addEventListener('click', function() {
-        
+
         cityName = document.getElementById('cityName').innerHTML;
         temp = document.getElementById('temp').innerHTML;
         tempFeel = document.getElementById('tempFeel').innerHTML;
@@ -147,7 +147,7 @@ function btnHandlers() {
             liff.sendMessages([
                 {
                   type:'text',
-                  text:'Hello, World!'
+                  text:msg
                 }
               ])
               .then(() => {

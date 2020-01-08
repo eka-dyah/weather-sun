@@ -93,7 +93,6 @@ function getInfoLiff() {
         document.getElementById('clientOrExternal').textContent = 'Welcome to Line in-app browser!';
         
     } else {
-        document.getElementById('buttonContent').style.display = 'none';
         document.getElementById('clientOrExternal').textContent = "You're running in external browser, open Line App for better experience";
     }
 }
@@ -101,14 +100,22 @@ function getInfoLiff() {
 function btnHandlers() {
 
     document.getElementById('openWindowButton').addEventListener('click', function() {
-        liff.openWindow({
-            url: 'https://weathersun.herokuapp.com/', 
-            external: true
-        });
+        if (!liff.isInClient()) {
+            alert("Fitur ini hanya tersedia jika membuka aplikasi di Line in-app browser");
+        } else {
+            liff.openWindow({
+                url: 'https://weathersun.herokuapp.com/', 
+                external: true
+            });
+        }
     });
 
     document.getElementById('closeWindowButton').addEventListener('click', function() {
-        liff.closeWindow();
+        if (!liff.isInClient()) {
+            alert("Fitur ini hanya tersedia jika membuka aplikasi di Line in-app browser");
+        } else {
+            liff.closeWindow();
+        }
     });
 
     document.getElementById('liffLoginButton').addEventListener('click', function() {

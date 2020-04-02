@@ -5,7 +5,7 @@ function getCity () {
   
   document.getElementById('loader').style.display = 'inline'; 
   city = document.getElementById('city').value || 'bandung';
-  const base_url = `https://api.openweathermap.org/data/2.5/find?q=${city}&units=metric&APPID=d49d613512b7f7ff7afba6e6812e2c79`;
+  const base_url = `https://api.openweathermap.org/data/2.5/find?q=${city}&units=metric&APPID=${config.API_KEY}`;
   
   fetchUrl(base_url)
   .then(data => {

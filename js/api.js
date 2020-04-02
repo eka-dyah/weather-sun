@@ -5,7 +5,7 @@ function getCity () {
   
   document.getElementById('loader').style.display = 'inline'; 
   city = document.getElementById('city').value || 'bandung';
-  var base_url = `https://api.openweathermap.org/data/2.5/find?q=${city}&units=metric&APPID=d49d613512b7f7ff7afba6e6812e2c79`;
+  const base_url = `https://api.openweathermap.org/data/2.5/find?q=${city}&units=metric&APPID=d49d613512b7f7ff7afba6e6812e2c79`;
   
   fetchUrl(base_url)
   .then(data => {
@@ -13,7 +13,7 @@ function getCity () {
       document.getElementById('loader').style.display = 'none';
       alert('Did you enter valid name of a city? If yes, try again with other city');
     } else{
-    var temp=0, tempFeel=0, humid=0, windSpeed=0, cloudiness=0,  cityName = "", tableHtml = "";
+    let temp=0, tempFeel=0, humid=0, windSpeed=0, cloudiness=0,  cityName = "", tableHtml = "";
     data.list.forEach(element => {
       temp += element.main.temp;
       tempFeel += element.main.feels_like;
